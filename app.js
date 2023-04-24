@@ -30,7 +30,7 @@ class Cale extends Lit{
 		this.moveTo(this.currentDay-7)
 	}
 	activateEvent(e){
-		e.target.classList.add("activeEvent")
+		e.target.classList.toggle("activeEvent")
 		e.stopPropagation()
 	}
 	deactivateEvents(e){
@@ -38,7 +38,9 @@ class Cale extends Lit{
 		// e.target.classList.remove("activeEvent")
 	}
 	deleter(e){
-		e.target.parentElement.remove()
+		// e.target.parentElement.remove()
+		[...this.querySelectorAll(".activeEvent")].forEach(div=>div.remove())
+
 	}
 	render(){
 		let week = dummy.slice(this.currentDay, this.currentDay+7)
