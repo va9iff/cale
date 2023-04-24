@@ -1,0 +1,191 @@
+*{
+	font-family: arial;
+}
+v-cale{
+	position: relative;
+}
+
+.hour {
+	position: absolute;
+
+}
+
+
+.event{
+	display: block;
+	position: absolute;
+	transition: all 400ms;
+	background-color: #7676d6;
+/*	color: #eee;*/
+	color: #050505;
+	overflow: hidden;
+	border-radius: 5px;
+	padding: 2px;
+	animation: eventAnim 200ms;
+
+	border: none;
+	text-align: left;
+	font-size: 1rem;
+	padding-left: 5px;
+}
+.event:focus{
+/*	font-size: 2rem;*/
+}
+
+.event:hover{
+	scale: 1.2;
+
+	overflow: visible;
+	z-index: 999;
+/*	height: unset !important;*/
+}
+/*.event:hover > .details{*/
+.event:hover > .details{
+	max-height: 100%;
+	opacity: 1;
+	overflow: hidden;
+}
+
+.event > .details{
+	opacity: 0;
+	max-height: 0;
+	transition: 300ms;
+	padding-bottom: 10px;
+}
+
+@keyframes eventAnim{
+	from{
+		scale: 0.4;
+		opacity: 0;
+/*		transform: translateY(-100px);*/
+	}
+	to{
+		scale: 1;
+		opacity: 1;
+/*		transform: translateY(0);*/
+	}
+}
+
+.dayDivider {
+	width: 2px;
+	background-color: #888;
+/*	height: 150vh;*/
+	height: calc(30 * 24.5px);
+	position: absolute;
+}
+
+.events, .hours {
+/*	background-color: gray;*/
+	margin-left: 50px;
+	margin-top: 50px;
+	position: relative;
+}
+
+.dayName{
+	position: absolute;
+	transform: translateX(156px) translateY(-20px);
+}
+
+
+.hour {
+	margin-left: -45px;
+
+	border: none;
+	background-color: #0000;
+	font-size: 1rem;
+	padding: 0;
+}
+
+.hour::after{
+	z-index: 9;
+	content: '-';
+	color: #0000;
+	background-color: #b0b0e8;
+	position: absolute;
+	left: 100%;
+	width: 0;
+	transition: 200ms;
+/*	opacity: 0.4;*/
+	border-radius: 0 50px 50px 0;
+	pointer-events: none;
+
+	transform: scaleY(1.2);
+
+}
+
+.hour:hover{
+	transition: 200ms;
+	color: #7676d6;
+}
+
+.hour:focus::after,
+.hour:hover::after{
+	width: 80vw;
+	opacity: 0.8;
+/*	border-radius: 0;*/
+	left: 100%;
+}
+
+.hour:focus::after{
+	opacity: 1;
+}
+
+.hour::before{
+	content: "";
+	height: 1px;
+	background-color: #bdbddb;
+	pointer-events: none;
+	position: absolute;
+	left: 110%;
+	top: 50%;
+	width: 1000px;
+}
+
+.navWeekButton{
+	padding: 6px;
+	background-color: #ababc9;
+	border-radius: 3px;
+	border: none;
+	transition: 120ms;
+	font-size: 1.02rem;
+}
+.navWeekButton:hover{
+	transform: scale(1.09);
+
+}
+
+.event.activeEvent > .deleter{
+/*	right: 100%;*/
+	display: inline;
+
+}
+
+@keyframes deleterAnim{
+	from{
+		transform: translateX(-15px);
+	}
+	to{
+		transform: translateX(0);
+	}
+}
+
+.deleter{
+	padding: 4px 6px;
+	animation: deleterAnim 200ms;
+	position: absolute;
+	right: -30px;
+	top: -5px;
+	display: none;
+	background-color: #f22;
+	border: none;
+	border-radius: 3px;
+}
+
+.activeEvent{
+/*	background-color: red;*/
+	overflow: visible;
+	box-shadow: 
+		0 0 0 5px #bdbddb,
+		0 0 0 22px #9998;
+
+}
