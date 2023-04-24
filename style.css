@@ -33,7 +33,7 @@ v-cale{
 }
 
 .event:hover{
-	scale: 1.2;
+	scale: 1.05;
 
 	overflow: visible;
 	z-index: 999;
@@ -182,6 +182,7 @@ v-cale{
 }
 
 .activeEvent{
+	
 /*	background-color: red;*/
 	overflow: visible;
 	box-shadow: 
